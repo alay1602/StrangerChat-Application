@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL TIME CHAT APPLICATION</title>
+    <link href="/css/style.css";>
+   
+   
+    
+    <style>
+    .container{
+    
+    height: 500px;
+   padding: 16px;
+   display: flex;
+   flex-direction: column;
+ 
+   padding-top: 40px;
+   overflow-y: auto;
+
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vh;
+
+}
+.brand{
+    padding: 20px;
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+}
+.message{
+   
+   
+    padding: 20px;
+    margin-bottom: 40px;
+    width: 300px;
+   
+    border-radius: 16px;
+    position: relative;
+}
+.left{
+  
+    background: #8f888f;
+    color: #fff;
+    
+}
+.right{
+    
+    background:#e9eafd;
+    margin-left: auto;
+}
+
+.chat-section{
+    width: 800px;
+    max-width: 90%;
+    background: #fff;
+    box-shadow: 0 10px 15px -3px;
+}
+.btn{
+    cursor: pointer;
+
+}
+.img-logo{
+   
+display: block;
+margin: auto;
+
+}
+
+.heading{
+    text-align: center;
+}
+.chat-box{
+    background-color: antiquewhite;
+}
+textarea{
+    width: 100%;
+    border: none;
+    padding: 20px;
+    outline: none;
+    background-color: #FBFBF8;
+}
+    </style>
+</head>
+<body>
+    <section class="chat-section">
+   <div class="brand">
+        <div class="img-container">
+            <img class="img-logo" height="40px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAADlCAMAAAAP8WnWAAAAllBMVEUArEf///9buXQAgy1vwYQAqT4ArkdfvHgkk0aJzp0ZijkEgi5jvXwRrUxXuHEAq0QApzY6tWGDyJT3/fpPtWtLtGgAfyYApjNjwoF0woi53sLx+fPe7+Kq2LVFpl9Vsm/T6thqxYae06u03L5jvHt+xpBXv3g0mk+v3r02tmFNvHCZ1aoVmEETpEgXkD4ao0vE5s4kslZMKozuAAAD+0lEQVR4nO3djVLiMBSG4ZQS+ZO0QksXWl0EdPlxEe//5rZdHZdx1DYnbJOT+d4rOM/kpHVGBREYlZ9Wk3nXkeaT1Sk/n06Y0NabNFGq40xKJen1+iK4RZLY1nxWkiyMcXnXSVpV0s3NcEXi0Dp+TCWFCa5IbQO+Ly3ouNxxW7maORm3cXgnX1NdKu7W2WfJv5I1DTd1fimr0ikJd+v8UlapWxKOwVJWKQpuyWIrq9cBAcfhcVKl1gTcA4srV+IGBJztoRs3J+CYHFyn0yPgmFy5MuCAczDggHMw4IBzMOCAczDggHMw4IBzMOCAczDggHMw4IBzMOCAczDK7+d6LdXpXRKXbyePN7UNW6r/606Z8c5w210WSxnVJUZhW81mwzsT3jtuG8WRaNK4PVzlCw14b7jpPmtGaxtX8vqGuCKSDWnt48Jw9NMEVzTcSEu4cEbUVbhcaths4MIRHXfTfCct4cIh6alS4m5jHZsd3OyOhpvq2ezgwnBDwh20ltIWjnR0IhjrPE3sndyIcOvEMtOz2cJRXgdipbmV1nCEvRT3THBhX38vxY3mlbOGI7zqxFjTZg03utbHaQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccMABBxxwwAEHHHDAAQcccP8L19PHXbHBzQm4IxOcOhBwT0xwyYKA+80Elxb6OGv/kauL2wQEnKW91MUlawrO0tFp4wISzs7RaeLSEw0nxNB5nHoIqDgrHxuig1OdgIy7sqDTwSmV03GlrvXN1MAlm9dvtCTiSt1x5iouHbx9IhYVV/Ke2z28hjiVbpaBMa48vOdji1dv1FO1JUk6eacZ4Ure1cvz07HfUoNJTYPD+kxmivvra6tY/yMPTXHtFU+BA865gAPOwYADzsGAA87BgAPOwYADzsGAA87BgAPOwYADzsGAA87BgGOL07bxwUWEL5OzPXPjor3HOHnwGJct6zFccZQrxwYXr/zFRZJg44LL1v7i5CPFxgMnX0g2Fjg51v+xkgsu3hFt7uOibFCvYImLZLYvyDYKLpItFWdiYkCj4OR+0E6HhZGMgotprxwr+WzTxbGyaeJ42fRwzGxauLhne1rNPD43HVz8w/as2vlsa4zjaGuKY2lriONpa4ZjamuE42prgmNra4Dja6vHMbbV4jjb6nCsbTU43rbvccxt3+Lie9vTGeaz7Rscf9vXOA9sX+J8sH2F88L2Bc4P2+c4T2yf4nyxBWIXeWsLxFx6awvEKftg69oe6XKJ4CXy1VbiivOji+e2B7pkIghO2fu1y7yyVbgg32cyiiIZy63tcS7b699oFofH3X6+sDzLxfsDMDpeZ4I8qjoAAAAASUVORK5CYII=">
+        </div>
+        <div class="heading">
+            <h2>STRANGER CHAT APPLICATION</h2>
+        </div>
+   </div>
+        
+    <div class="chat-box">
+
+        
+
+        <div class="container">
+         
+            <!-- <div class="message left">
+                <h4>you</h4>
+                <p>hello</p>
+            </div>
+            
+         
+            <div class="message right">
+                <h4>you</h4>
+                <p>hello</p>
+            </div> -->
+       
+
+            
+           
+       
+        </div>
+         <div class="chat-detail">
+            <textarea id="MesageInput" cols="50" rows="4" placeholder="enetr a something"></textarea>
+
+
+         </div>
+   
+
+    </div>
+    </section>
+    
+   
+           
+            <!-- //<input type="text" name="mesageInp" id="MesageInput"> -->
+            <!-- <button class="btn" type="submit">SEND</button> -->
+       
+
+  
+    <script  src="/socket.io/socket.io.js"></script>
+    <script src="/client.js" ></script>   
+
+</body>
+</html>
